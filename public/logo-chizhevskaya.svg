@@ -1,0 +1,16 @@
+<svg width="220" height="50" viewBox="0 0 220 50" xmlns="http://www.w3.org/2000/svg">
+  <!-- Чёрный прямоугольник -->
+  <rect width="220" height="50" rx="6" fill="black" />
+  <!-- Белый текст по центру -->
+  <text
+    x="110"
+    y="32"
+    text-anchor="middle"
+    fill="white"
+    font-family="Arial, sans-serif"
+    font-size="20"
+    font-weight="bold"
+  >
+    Chizhevskaya
+  </text>
+</svg>
