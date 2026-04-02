@@ -14,19 +14,19 @@ export default function DifferencesSection() {
       <h3>Верстка сайтов (HTML + CSS)</h3>
       <Button
         isActive={contentType === "way"}
-        onClickParametr={() => handleClick("way")}
+        onClick={() => handleClick("way")}
       >
         Подход
       </Button>
       <Button
         isActive={contentType === "easy"}
-        onClickParametr={() => handleClick("easy")}
+        onClick={() => handleClick("easy")}
       >
         Доступность
       </Button>
       <Button
         isActive={contentType === "program"}
-        onClickParametr={() => handleClick("program")}
+        onClick={() => handleClick("program")}
       >
         Концентрация
       </Button>

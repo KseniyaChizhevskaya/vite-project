@@ -1,14 +1,16 @@
-import "./Button.css";
+import classes from "./Button.module.css";
 
-export default function Button({ children, onClickParametr, isActive }) {
+export default function Button({ children, isActive, onClick, ...props }) {
+  console.log("onClick", onClick);
   //const handleClickMouse = () => console.log("entered");
   //компоненты называются с большой буквы
   return (
     <button
-      className={isActive ? "button:active" : "button"}
-      onClick={onClickParametr}
-      //onMouseEnter={handleClickMouse}
-      //onDoubleClick={() => console.log("dbl")}
+      {...props}
+      className={
+        isActive ? "${classes.button} ${classes.active}" : classes.button
+      }
+      onClick={onClick}
     >
       {children}
     </button>
