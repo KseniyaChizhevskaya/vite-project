@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import mySvg from "/logo-chizhevskaya.svg";
 import { useState } from "react";
 import "./Header.css";
@@ -6,7 +6,10 @@ import "./Header.css";
 export default function Header() {
   const [now, setNow] = useState(new Date());
 
-  setInterval(() => setNow(new Date()), 1000);
+  useEffect(() => {
+    const interval = setInterval(() => setNow(new Date()), 1000);
+  }, []);
+
   // const now = new Date();
   return (
     <header className="header">

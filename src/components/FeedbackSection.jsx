@@ -2,20 +2,40 @@ import { useState } from "react";
 import Button from "./Button/Button";
 
 export default function FeedbackSection() {
-  const [name, setName] = useState("");
-  const [hasError, setHasError] = useState(false);
-  const [reason, setReason] = useState("error");
-  const [mail, setMail] = useState("");
-  const [hasMail, setHasMail] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    mail: "",
+    hasMail: true,
+    hasError: true,
+    reason: "error",
+  });
+
+  //const [name, setName] = useState("");
+  //const [hasError, setHasError] = useState(false);
+  //const [reason, setReason] = useState("error");
+  //const [mail, setMail] = useState("");
+  //const [hasMail, setHasMail] = useState(false);
 
   function handleNameChange(event) {
-    setName(event.target.value);
-    setHasError(event.target.value.trim().length === 0);
+    //setName(event.target.value);
+    // setHasError(event.target.value.trim().length === 0);
+    setForm((prev) => ({
+      ...prev,
+      name: event.target.value,
+      hasError: event.target.value.trim().length === 0,
+    }));
   }
   function handleMailChange(event) {
-    setMail(event.target.value);
-    setHasMail(event.target.value.trim().length === 0);
+    //console.log(event);
+    // setMail(event.target.value);
+    //setHasMail(event.target.value.trim().length === 0);
+    setForm((prev) => ({
+      ...prev,
+      mail: event.target.value,
+      hasMail: event.target.value.trim().length === 0,
+    }));
   }
+
   return (
     <section>
       <h3>ОБРАТНАЯ СВЯЗЬ</h3>
@@ -26,16 +46,18 @@ export default function FeedbackSection() {
           id="name"
           className="user-input"
           placeholder="Введите ваше имя"
-          value={name}
-          style={{ border: hasError ? "1px solid red" : null }}
+          value={form.name}
+          style={{ border: form.hasError ? "1px solid red" : null }}
           onChange={handleNameChange}
         />
         <label htmlFor="reason">Причина обращения</label>
         <select
           id="reason"
           className="user-input"
-          value={reason}
-          onChange={(event) => setReason(event.target.value)}
+          value={form.reason}
+          onChange={(event) =>
+            setForm((prev) => ({ ...prev, reason: event.target.value }))
+          }
         >
           <option value="error">Ошибка</option>
           <option value="help">Нужна помощь</option>
@@ -47,19 +69,19 @@ export default function FeedbackSection() {
           type="text"
           id="mail"
           className="user-input"
-          value={mail}
-          style={{ border: hasMail ? "1px solid red" : null }}
+          value={form.mail}
+          style={{ border: form.hasMail ? "1px solid red" : null }}
           onChange={handleMailChange}
         />
 
         <pre>
-          Name: {name}
+          Name: {form.name}
           <br />
-          Reason: {reason}
+          Reason: {form.reason}
           <br />
-          Mail: {mail}
+          Mail: {form.mail}
         </pre>
-        <Button disabled={[hasError, hasMail]}>Отправить</Button>
+        <Button disabled={[form.hasError, form.hasMail]}>Отправить</Button>
       </form>
     </section>
   );

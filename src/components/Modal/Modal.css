@@ -1,0 +1,17 @@
+dialog {
+    width: 400px;
+    margin: 10rem auto;
+    padding: 1rem 3rem 1rem 3rem;
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    z-index: 100;
+
+    /* Делает весь текст внутри модального окна наклонным */
+    font-style: italic;
+
+    background-color: #1e1e1e;
+    /* Темный фон */
+    color: white;
+    /* Белый цвет текста */
+}
